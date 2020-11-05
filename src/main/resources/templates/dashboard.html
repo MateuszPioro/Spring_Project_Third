@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymmeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link media="all" rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <ul class="list-group">
+                <li th:each="item : ${menu}" class="list-group-item">
+
+                    <!--
+                    poniży kod daje możliwość odwołania się do linków na stronie
+                    -->
+                    <a th:href="${item.url}"
+                       th:text="${item.name}"
+                       target="_blank">
+
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-8">
+            <div class="jumbotron">
+                <h3 class="display-4" th:text="${article.title}">Hello, world!</h3>
+                <p th:text="${article.title}">lorem ...</p>
+
+                <ul class="list-group">
+                    <li th:each="comment : ${article.comments}"
+                        class="list-group-item"
+                        th:text="${comment.text}"></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
